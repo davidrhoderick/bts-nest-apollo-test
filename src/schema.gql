@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateLossHistoryEntryInput {
+  carrier: String!
+  endDate: String!
+  startDate: String!
+}
+
+type LossHistoryEntry {
+  carrier: String!
+  endDate: String!
+  id: ID!
+  startDate: String!
+}
+
+type Mutation {
+  updateLossHistoryEntries(updateLossHistoryEntriesInput: UpdateLossHistoryEntriesInput!): [LossHistoryEntry!]!
+}
+
+type Query {
+  listLossHistoryEntries(transactionId: String!): [LossHistoryEntry!]!
+}
+
+input UpdateLossHistoryEntriesInput {
+  create: [CreateLossHistoryEntryInput!]!
+  delete: [String!]!
+  transactionId: String!
+  update: [UpdateLossHistoryEntryInput!]!
+}
+
+input UpdateLossHistoryEntryInput {
+  carrier: String!
+  endDate: String!
+  id: ID!
+  startDate: String!
+}
