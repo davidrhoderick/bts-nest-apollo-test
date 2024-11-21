@@ -4,7 +4,7 @@ import { LossHistoryEntry } from './entities/loss-history-entry.entity';
 import { UpdateLossHistoryEntriesInput } from './dto/update-loss-history-entries.input';
 import { ListLossHistoryEntriesArgs } from './dto/list-loss-history-entries.args';
 
-@Resolver(() => LossHistoryEntry)
+@Resolver()
 export class LossHistoryEntriesResolver {
   constructor(
     private readonly lossHistoryEntriesService: LossHistoryEntriesService,
