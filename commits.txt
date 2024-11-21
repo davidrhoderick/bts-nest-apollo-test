@@ -1,0 +1,8 @@
+4a50e2b Creating OfficialIds form using mock data without types
+9cd3dba Adding Official IDs types
+29becb4 Implemeting Official IDs types in the front end
+9e194ec Adding Official IDs entities to Nest.js
+36e245a Adding Official IDs DTOs to Nest.js
+3589bdd Injecting the new Official IDs module and generating SDL schema
+5422ab7 Fixing Official IDs in types package, resolver, and schema
+ec7e97a Implementing query
