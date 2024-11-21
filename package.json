@@ -5,14 +5,16 @@
   "scripts": {
     "dev": "concurrently --raw --kill-others npm:dev:*",
     "dev:types": "npm run watch --workspace=types",
-    "dev:nest": "npm run start:dev --workspace=nest-apollo"
+    "dev:nest": "npm run start:dev --workspace=nest-apollo",
+    "dev:frontend": "npm run dev --workspace=frontend"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "workspaces": [
     "types",
-    "nest-apollo"
+    "nest-apollo",
+    "frontend"
   ],
   "devDependencies": {
     "@parcel/packager-ts": "^2.13.0",
