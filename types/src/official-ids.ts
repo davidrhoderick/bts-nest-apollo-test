@@ -12,6 +12,10 @@ export interface IStateOfficialIds {
 
 export interface IStatesOfficialIds extends Array<IStateOfficialIds> {}
 
+export interface IListStatesOfficialIds {
+  listStatesOfficialIds: IStatesOfficialIds;
+}
+
 export interface IListStatesOfficialIdsArgs {
   transactionId: string;
 }

@@ -17,7 +17,7 @@ type LossHistoryEntry {
 
 type Mutation {
   updateLossHistoryEntries(updateLossHistoryEntriesInput: UpdateLossHistoryEntriesInput!): [LossHistoryEntry!]!
-  updateStatesOfficialIds(updateStatesOfficialIdsInput: UpdateStatesOfficialIdsInput!): [OfficialId!]!
+  updateStatesOfficialIds(updateStatesOfficialIdsInput: UpdateStatesOfficialIdsInput!): [StateOfficialIds!]!
 }
 
 type OfficialId {
@@ -28,7 +28,13 @@ type OfficialId {
 
 type Query {
   listLossHistoryEntries(transactionId: String!): [LossHistoryEntry!]!
-  listStatesOfficialIds(transactionId: String!): [OfficialId!]!
+  listStatesOfficialIds(transactionId: String!): [StateOfficialIds!]!
+}
+
+type StateOfficialIds {
+  displayName: String!
+  officialIds: [OfficialId!]!
+  state: ID!
 }
 
 input UpdateLossHistoryEntriesInput {
