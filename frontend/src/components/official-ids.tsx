@@ -11,6 +11,7 @@ import {
   UPDATE_STATES_OFFICIAL_IDS,
 } from "../gql/official-ids";
 import removeTypename from "../lib/remove-typename";
+import { useEffect } from "react";
 
 export default function OfficialIds() {
   // TODO get this from useRouter
@@ -21,9 +22,14 @@ export default function OfficialIds() {
     IListStatesOfficialIdsArgs
   >(LIST_STATES_OFFICIAL_IDS, { variables: { transactionId } });
 
-  const { register, handleSubmit } = useForm<IUpdateStatesOfficialIdsInput>({
-    defaultValues: { transactionId, states: data?.listStatesOfficialIds },
-  });
+  const { register, handleSubmit, reset } =
+    useForm<IUpdateStatesOfficialIdsInput>({
+      defaultValues: { transactionId, states: data?.listStatesOfficialIds },
+    });
+
+  useEffect(() => {
+    reset({ transactionId, states: data?.listStatesOfficialIds });
+  }, [data?.listStatesOfficialIds, reset]);
 
   const [updateStatesOfficialIds, { loading: mutationLoading }] = useMutation<
     IListStatesOfficialIds,
