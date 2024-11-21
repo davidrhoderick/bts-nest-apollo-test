@@ -23,7 +23,7 @@ export class OfficialIdsService {
   }
 
   update(input: UpdateStatesOfficialIdsInput): IStatesOfficialIds {
-    console.log('update input', input);
+    console.log('update input', JSON.stringify(input));
     return [
       {
         state: 'HI',
