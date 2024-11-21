@@ -54,16 +54,14 @@ input UpdateLossHistoryEntryInput {
 input UpdateOfficialIdsInput {
   code: ID!
   id: String!
-  label: String!
 }
 
-input UpdateStateOfficialIdsInput {
-  displayName: String!
+input UpdateStateOfficialIds {
   officialIds: [UpdateOfficialIdsInput!]!
   state: ID!
 }
 
 input UpdateStatesOfficialIdsInput {
-  states: [UpdateStateOfficialIdsInput!]!
+  states: [UpdateStateOfficialIds!]!
   transactionId: ID!
 }
