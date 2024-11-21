@@ -1,30 +1,23 @@
+import { useQuery } from "@apollo/client";
 import {
-  IStatesOfficialIds,
+  IListStatesOfficialIds,
+  IListStatesOfficialIdsArgs,
   IUpdateStatesOfficialIdsInput,
 } from "@bts-api-tests/types";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { LIST_STATES_OFFICIAL_IDS } from "../gql/official-ids";
 
 export default function OfficialIds() {
   // TODO get this from useRouter
   const transactionId = "123456";
 
-  // TODO get this from useQuery
-  const states: IStatesOfficialIds = [
-    {
-      state: "HI",
-      displayName: "Hawaii",
-      officialIds: [
-        {
-          label: "State Unemployment ID",
-          code: "STUN",
-          id: "12315123",
-        },
-      ],
-    },
-  ];
+  const { data, loading } = useQuery<
+    IListStatesOfficialIds,
+    IListStatesOfficialIdsArgs
+  >(LIST_STATES_OFFICIAL_IDS, { variables: { transactionId } });
 
   const { register, handleSubmit } = useForm<IUpdateStatesOfficialIdsInput>({
-    defaultValues: { transactionId, states },
+    defaultValues: { transactionId, states: data?.listStatesOfficialIds },
   });
 
   const onSubmit: SubmitHandler<IUpdateStatesOfficialIdsInput> = (formData) => {
@@ -34,26 +27,30 @@ export default function OfficialIds() {
     // TODO submit with useMutation
   };
 
-  return (
+  return loading ? (
+    "loading"
+  ) : (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="hidden" {...register("transactionId")} />
-      {states.map(({ displayName, state, officialIds }, stateIndex) => (
-        <div key={state}>
-          <h1>{displayName}</h1>
+      {data?.listStatesOfficialIds?.map(
+        ({ displayName, state, officialIds }, stateIndex) => (
+          <div key={state}>
+            <h1>{displayName}</h1>
 
-          {officialIds.map(({ label, code }, codeIndex) => (
-            <div key={`${state}-${code}`}>
-              <label htmlFor={`${state}-${code}`}>{label}</label>
+            {officialIds.map(({ label, code }, codeIndex) => (
+              <div key={`${state}-${code}`}>
+                <label htmlFor={`${state}-${code}`}>{label}</label>
 
-              <input
-                {...register(
-                  `states.${stateIndex}.officialIds.${codeIndex}.id`
-                )}
-              />
-            </div>
-          ))}
-        </div>
-      ))}
+                <input
+                  {...register(
+                    `states.${stateIndex}.officialIds.${codeIndex}.id`
+                  )}
+                />
+              </div>
+            ))}
+          </div>
+        )
+      )}
 
       <button type="submit">Continue</button>
     </form>
