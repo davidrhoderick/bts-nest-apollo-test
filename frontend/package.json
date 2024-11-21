@@ -14,7 +14,8 @@
     "@bts-api-tests/types": "^1.0.0",
     "graphql": "^16.9.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
