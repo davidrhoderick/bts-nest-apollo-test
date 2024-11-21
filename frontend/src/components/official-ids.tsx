@@ -50,18 +50,9 @@ export default function OfficialIds() {
           <div key={state}>
             <h1>{displayName}</h1>
 
-            <input type="hidden" {...register(`states.${stateIndex}.state`)} />
-
             {officialIds.map(({ label, code }, codeIndex) => (
               <div key={`${state}-${code}`}>
                 <label htmlFor={`${state}-${code}`}>{label}</label>
-
-                <input
-                  type="hidden"
-                  {...register(
-                    `states.${stateIndex}.officialIds.${codeIndex}.code`
-                  )}
-                />
 
                 <input
                   {...register(
