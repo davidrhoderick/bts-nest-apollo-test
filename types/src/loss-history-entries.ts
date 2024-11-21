@@ -5,6 +5,8 @@ export interface ILossHistoryEntry {
   endDate: string;
 }
 
+export interface ILossHistoryEntries extends Array<ILossHistoryEntry> {}
+
 export interface IListLossHistoryEntriesArgs {
   transactionId: string;
 }
@@ -17,4 +19,8 @@ export interface IUpdateLossHistoryEntriesInput {
   delete: Array<ILossHistoryEntry["id"]>;
   update: Array<ILossHistoryEntry>;
   create: Array<ICreateLossHistoryEntry>;
+}
+
+export interface IUpdateLossHistoryEntriesInputVariables {
+  updateLossHistoryEntriesInput: IUpdateLossHistoryEntriesInput;
 }
