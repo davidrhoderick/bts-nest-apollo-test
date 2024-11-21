@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { LossHistoryEntriesModule } from './loss-history-entries/loss-history-entries.module';
 import { join } from 'path';
+import { OfficialIdsModule } from './official-ids/official-ids.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { join } from 'path';
       sortSchema: true,
     }),
     LossHistoryEntriesModule,
+    OfficialIdsModule,
   ],
 })
 export class AppModule {}
