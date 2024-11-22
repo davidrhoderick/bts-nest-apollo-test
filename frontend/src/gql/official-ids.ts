@@ -13,3 +13,21 @@ export const LIST_STATES_OFFICIAL_IDS = gql`
     }
   }
 `;
+
+export const UPDATE_STATES_OFFICIAL_IDS = gql`
+  mutation updateStatesOfficialIds(
+    $updateStatesOfficialIdsInput: UpdateStatesOfficialIdsInput!
+  ) {
+    updateStatesOfficialIds(
+      updateStatesOfficialIdsInput: $updateStatesOfficialIdsInput
+    ) {
+      state
+      displayName
+      officialIds {
+        label
+        code
+        id
+      }
+    }
+  }
+`;
