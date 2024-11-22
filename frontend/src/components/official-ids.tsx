@@ -1,11 +1,15 @@
-import { useForm } from "react-hook-form";
+import {
+  IStatesOfficialIds,
+  IUpdateStatesOfficialIdsInput,
+} from "@bts-api-tests/types";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 export default function OfficialIds() {
   // TODO get this from useRouter
   const transactionId = "123456";
 
   // TODO get this from useQuery
-  const states = [
+  const states: IStatesOfficialIds = [
     {
       state: "HI",
       displayName: "Hawaii",
@@ -30,11 +34,11 @@ export default function OfficialIds() {
     },
   ];
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<IUpdateStatesOfficialIdsInput>({
     defaultValues: { transactionId, states },
   });
 
-  const onSubmit = (formData) => {
+  const onSubmit: SubmitHandler<IUpdateStatesOfficialIdsInput> = (formData) => {
     console.log("transactionId", formData.transactionId);
     console.log("officialIds", formData.states);
 
