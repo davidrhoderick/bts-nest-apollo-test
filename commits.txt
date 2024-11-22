@@ -1,0 +1,7 @@
+94c27387f48d6900e06f8b0c9486e4313cc25e47 Preparing demo
+2afc45b177b0db80641ec8f55ab79e3148e649b6 Adding official IDs types
+19098fcfa526d0869ab3d07e71bc72d77c083b14 Implementing official IDs types in the front end
+af41d358c0f4f317e392883aaf643867e05461c0 Adding Nest.js official IDs DTOs and Entities
+11320ffdb2ca1ca078983e5a2093c6553b428f2f Adding official IDs module, resolver, & service and updating app module and GraphQL schema
+18b3df75312b0f1aa44f65ff0ad29146c58a3ae0 Implementing query in the front end
+b8f55fd5b9a85f66eafca95248a6f3428b7f5337 Implementing mutation in the front end
