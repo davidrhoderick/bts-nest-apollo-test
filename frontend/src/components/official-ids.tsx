@@ -17,6 +17,17 @@ export default function OfficialIds() {
         },
       ],
     },
+    {
+      state: "CO",
+      displayName: "Colorado",
+      officialIds: [
+        {
+          label: "State Tax ID",
+          code: "STAX",
+          id: "551212412",
+        },
+      ],
+    },
   ];
 
   const { register, handleSubmit } = useForm({
